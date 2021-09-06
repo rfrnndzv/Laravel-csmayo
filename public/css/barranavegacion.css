@@ -1,0 +1,57 @@
+.navbar-inverse {
+  background-color: darkcyan;
+  border-color: transparent;
+}
+
+.navbar-inverse .navbar-brand {
+  color: black;
+  margin-right: 40px;
+}
+
+#myNavbar .navbar-nav li a {
+  color: black;
+}
+
+#myNavbar #course {
+  transition: all 0.3s ease-in-out;
+}
+
+#myNavbar #course:hover {
+  background-color: rgba(14, 14, 61, 0.315);
+}
+
+#sub-dropdown-menu {
+  display: none;
+  position: absolute;
+  box-shadow: 2px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+#sub-dropdown-menu a,
+.dropdown-menu a {
+  color: #000 !important;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  transition: all 0.5s ease-in-out;
+}
+
+#sub-dropdown:hover #sub-dropdown-menu {
+  display: block;
+}
+
+.dir-der {
+  background-image: url("../img/sort_desc.png");
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+a {
+    text-decoration: none;
+}

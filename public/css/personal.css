@@ -1,0 +1,23 @@
+.container-fluid{
+    background-image: url("../img/encabezado.png");
+}
+
+.cipersonal{
+    visibility: hidden;
+}
+
+.contenido{
+    background-color: rgba(119, 136, 153, 0.678);
+    border-radius: 15px;
+}
+
+.sticky-footer{
+    padding: 25px;
+    height: 200px;
+    background-image: url('../img/bg_pie2.png');
+    color: white;
+}
+
+.cuerpo-pie{
+    background: rgba(25, 25, 112, 0.329);
+}

@@ -1,0 +1,108 @@
+body{
+    background-image: url("../img/fondoPagina.png");
+}
+
+.container-fluid{
+    background-image: url("../img/encabezado.png");
+}
+
+.acceso a{
+    color: white;
+    text-decoration: none;
+}
+
+.acceso a:hover{
+    color: orangered;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.img-fluid{
+    height:auto 200px;
+    width: 200px;
+}
+
+.contenido{
+    background-color: rgba(119, 136, 153, 0.678);
+    border-radius: 15px;
+}
+
+.sticky-footer{
+    height: 200px;
+    background-image: url('../img/bg_pie2.png');
+    color: rgb(2, 2, 2);
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.cuerpo-pie{
+    color: white;
+    background: rgba(0, 0, 0, 0.788);
+    border-radius: 15px;
+    margin: 5px;
+}
+
+.division{
+    color: white;
+    background-color: black;
+    text-align: center;
+}
+
+.bordeado{
+    border: indigo;
+    border-style: double;
+}
+
+.drop-down02{
+	position:relative;
+}
+.drop-down02 .sub-menu02
+{
+	position: absolute !important;
+	left: 100%;
+	top: 0;
+}
+
+.drop-down02 .dropdown-toggle{
+	padding:.25rem 1.1rem !important;
+}
+
+@media screen and (max-width :767px)
+{
+	.drop-down02 .sub-menu02
+	{
+		position:static !important;
+	}
+}
+
+.editar{
+    background-image: url("../img/editar.png");
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+
+.eliminar{
+    background-image: url("../img/eliminar.png");
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+
+.opciones{
+    background-image: url("../img/opciones.png");
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
