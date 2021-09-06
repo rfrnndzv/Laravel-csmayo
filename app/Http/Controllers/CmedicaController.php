@@ -94,7 +94,7 @@ class CmedicaController extends Controller
         $amedica->cienf = Auth::user()->ciusuario;
         $amedica->save();
 
-        return redirect(route('consulta_medica.index'));
+        return redirect(route('cmedica.index'));
     }
 
     /**

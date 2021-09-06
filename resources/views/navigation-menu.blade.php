@@ -20,8 +20,8 @@
                         {{ __('Recaudaciones') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('enfermeria.index') }}" :active="request()->routeIs('enfermeria.*')">
-                        {{ __('Enfermería') }}
+                    <x-jet-nav-link href="{{ route('cmedica.index') }}" :active="request()->routeIs('cmedica.*')">
+                        {{ __('Consulta Médica') }}
                     </x-jet-nav-link>
                 </div>
             </div>
@@ -154,8 +154,8 @@
                 {{ __('Recaudaciones') }}
             </x-jet-responsive-nav-link>
 
-            <x-jet-responsive-nav-link href="{{ route('enfermeria.index') }}" :active="request()->routeIs('enfermeria.*')">
-                {{ __('Enfermería') }}
+            <x-jet-responsive-nav-link href="{{ route('cmedica.index') }}" :active="request()->routeIs('cmedica.*')">
+                {{ __('Consulta Médica') }}
             </x-jet-responsive-nav-link>
         </div>
 

@@ -1,16 +1,29 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-grey-800 leading-tight">
-            Enfermería
+            Consulta Médica
         </h2>
     </x-slot>
 
     <!-- Menu de Opciones -->
-
+    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+        <div class="btn-group" role="group">
+          <button id="BGD_menuPrincipal" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Opciones
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="BGD_menuPrincipal">
+            <li><a class="dropdown-item" href="">Recetar</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a type="button" class="dropdown-item" href="{{ route('cmedica.index') }}">Volver</a></li>
+          </ul>
+        </div>
+      </div>
 
     <!-- Contenido -->
     <div class="contenido p-3">
-        <form id="cmedica" class="row g-3 needs-validation" method="POST" action="{{ route('enfermeria.update', $anexo) }}" novalidate>
+        <form id="cmedica" class="row g-3 needs-validation" method="POST" action="{{ route('cmedica.update', $anexo) }}" novalidate>
             @csrf
             @method('PUT')
             <input class="col-md-3" type="hidden" value="{{ $anexo->nroanexo }}" name="nroanexo">

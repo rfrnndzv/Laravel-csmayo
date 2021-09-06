@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-grey-800 leading-tight">
-            Enfermería
+            Consulta Médica
         </h2>
     </x-slot>
 
