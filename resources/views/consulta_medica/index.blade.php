@@ -29,7 +29,7 @@
                         <td> {{ $reserva->medico }} </td>
                         <td> {{ $reserva->estado }} </td>
                         <td>
-                            <a href="{{ route('enfermeria.edit', $reserva->nroanexo) }}"
+                            <a href="{{ route('cmedica.edit', $reserva->nroanexo) }}"
                                 class="btn btn-success">Atender</a>
                         </td>
                     </tr>

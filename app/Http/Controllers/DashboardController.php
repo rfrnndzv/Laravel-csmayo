@@ -14,7 +14,9 @@ class DashboardController extends Controller
         if(Auth::user()->nivel == 3)
             return redirect('recaudaciones');
         if(Auth::user()->nivel == 4)
-            return redirect('enfermeria');
+            return redirect('cmedica');
+        if(Auth::user()->nivel == 4)
+            return redirect('cmedica');
     }
 
 }

@@ -40,8 +40,7 @@ Route::post('anexo/crea', [AnexoController::class, 'crea'])->name('anexo.crea');
 Route::get('amedica/crea/{nroanexo}', [AmedicaController::class, 'crea'])->name('amedica.crea');
 
 Route::get('cmedica/crea/{nroam}', [CmedicaController::class, 'crea'])->name('cmedica.crea');
-
-Route::middleware('enfermeria')->resource('enfermeria', EnfermeriaController::class)->parameters(['enfermeria' => 'anexo']);
+Route::middleware('cmedica')->resource('cmedica', CmedicaController::class)->parameters(['cmedica' => 'anexo']);
 
 Route::get('contactanos', [ContactanosController::class, 'index'])->name('contactanos.index');
 

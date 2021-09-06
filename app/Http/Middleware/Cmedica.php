@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class Enfermeria
+class Cmedica
 {
     /**
      * Handle an incoming request.
@@ -31,7 +31,7 @@ class Enfermeria
                 return $next($request);//si es enfermera a enfermeria
             break;
             case ('5'):
-                return redirect('medgeneral');//si es medico general
+                return $next($request);//si es medico general
             break;
             case ('6'):
                 return redirect('odontologia');//si es medico odontologo

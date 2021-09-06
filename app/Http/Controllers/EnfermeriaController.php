@@ -17,11 +17,7 @@ class EnfermeriaController extends Controller
      */
     public function index()
     {
-        $reservas = DB::select("SELECT A.nroanexo, A.fecha, A.estado, (SELECT getMedico(A.cimed)) AS medico, C.cipaciente, (SELECT getPaciente(B.nrohc)) AS nom_paciente
-                                FROM anexo A, registra B, paciente C
-                                WHERE A.nrohc = B.nrohc AND B.cipaciente LIKE C.cipaciente AND DATE_FORMAT(A.fecha,'%y-%m-%d') = DATE_FORMAT(now(),'%y-%m-%d')");
-
-        return view('consulta_medica.index', compact('reservas'));
+        //
     }
 
     /**
@@ -64,14 +60,7 @@ class EnfermeriaController extends Controller
      */
     public function edit(Anexo $anexo)
     {
-        $amedica = Amedica::find($anexo->nroanexo);
-
-        if(!isset($amedica->hingreso)){
-            date_default_timezone_set("America/Caracas");
-            $amedica->hingreso = date("H:i");
-        }
-
-        return view('consulta_medica.atender', compact('anexo', 'amedica'));
+        //
     }
 
     /**
@@ -83,17 +72,7 @@ class EnfermeriaController extends Controller
      */
     public function update(Request $request, Anexo $anexo)
     {
-        if($anexo->estado == "espera"){
-            $anexo->estado = "en cola";
-        }
-        $anexo->save();
-
-        $amedica = Amedica::find($anexo->nroanexo);
-        $amedica->update($request->all());
-        $amedica->cienf = Auth::user()->ciusuario;
-        $amedica->save();
-
-        return redirect(route('consulta_medica.index'));
+        //
     }
 
     /**
