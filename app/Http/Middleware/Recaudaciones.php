@@ -19,7 +19,7 @@ class Recaudaciones
     {
         switch(auth::user()->nivel){
             case ('1'):
-                return redirect('usuario');//si es Soporte de Desarrollo a usuarios
+                return $next($request);// si es un administrativo a recaudaciones
             break;
             case ('2'):
                 return redirect('usuario');//si es Soporte de Mantenimiento a usuarios
