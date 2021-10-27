@@ -16,4 +16,11 @@ class Cmedica extends Model
     public function getKeyName(){
         return "nrocm";
     }
+
+    protected $fillable = [
+        'objetivo',
+        'subjetivo',
+        'analisis',
+        'paccion',
+    ];
 }

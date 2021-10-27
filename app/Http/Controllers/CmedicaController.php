@@ -66,13 +66,19 @@ class CmedicaController extends Controller
     public function edit(Anexo $anexo)
     {
         $amedica = Amedica::find($anexo->nroanexo);
+        $cmedica = Cmedica::find($anexo->nroanexo);
 
         if(!isset($amedica->hingreso)){
             date_default_timezone_set("America/Caracas");
             $amedica->hingreso = date("H:i");
         }
 
-        return view('consulta_medica.atender', compact('anexo', 'amedica'));
+        $paciente = DB::table('registra')
+                    ->join('paciente', 'registra.cipaciente', 'like', 'paciente.cipaciente')
+                    ->where('nrohc', 'like', $anexo->nrohc)
+                    ->get()->first();
+
+        return view('consulta_medica.atender', compact('anexo', 'amedica', 'cmedica', 'paciente'));
     }
 
     /**
@@ -84,15 +90,30 @@ class CmedicaController extends Controller
      */
     public function update(Request $request, Anexo $anexo)
     {
-        if($anexo->estado == "espera"){
+        if($anexo->estado == "espera" && Auth::user()->nivel == 4){
             $anexo->estado = "en cola";
+        }else if($anexo->estado == "en cola" && Auth::user()->nivel > 4){
+            $anexo->estado = "atendido";
         }
         $anexo->save();
 
-        $amedica = Amedica::find($anexo->nroanexo);
-        $amedica->update($request->all());
-        $amedica->cienf = Auth::user()->ciusuario;
-        $amedica->save();
+        if (Auth::user()->nivel == 4) {
+            $amedica = Amedica::find($anexo->nroanexo);
+            $amedica->update($request->all());
+            $amedica->cienf = Auth::user()->ciusuario;
+            $amedica->save();
+        } elseif(Auth::user()->nivel > 4) {
+            $amedica = Amedica::find($anexo->nroanexo);
+            if(!isset($amedica->hegreso)){
+                date_default_timezone_set("America/Caracas");
+                $amedica->hegreso = date("H:i");
+            }
+            $amedica->save();
+            
+            $cmedica = Cmedica::find($anexo->nroanexo);
+            $cmedica->update($request->all());
+            $cmedica->save();
+        }
 
         return redirect(route('cmedica.index'));
     }

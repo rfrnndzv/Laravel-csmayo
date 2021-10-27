@@ -17,7 +17,7 @@ class CreateAmedicasTable extends Migration
             $table->id('nroam');
             $table->string('cienf', 15)->nullable();
             $table->string('hingreso', 5)->nullable();
-            $table->string('hengreso', 5)->nullable();
+            $table->string('hegreso', 5)->nullable();
             $table->decimal('talla', 5, 2)->nullable();
             $table->decimal('peso', 5, 2)->nullable();
             $table->string('temperatura', 5)->nullable();

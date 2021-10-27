@@ -1,7 +1,7 @@
 <div class="row">
     <div class="Encabezado text-white text-center col-xl-9">
-        <h1 class="pt-1 display-5">Software Integrado</h1>
-        <h1 class="pb-1 display-4">CENTRO DE SALUD 1ro DE MAYO</h1>
+        <h1 class="h4">Software Integrado</h1>
+        <h1 class="h2">CENTRO DE SALUD 1º DE MAYO</h1>
     </div>
     <div class="col-xl-3">
         <div class="row justify-content-around">
