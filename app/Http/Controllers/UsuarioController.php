@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePersonal;
 use App\Models\Administrativo;
 use App\Models\Enfermera;
+use App\Models\Farmaceutico;
 use App\Models\Medico;
 use App\Models\Persona;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Soporte;
 use Illuminate\Support\Facades\Hash;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class UsuarioController extends Controller
 {
@@ -116,6 +118,14 @@ class UsuarioController extends Controller
 
                 $medico->save();
                 break;
+            case '7':
+                $famaceutico = new Farmaceutico();
+
+                $famaceutico->cimed = $request->ciusuario;
+                $famaceutico->turno = "24Hrs";
+
+                $famaceutico->save();
+                break;
         }
         return redirect('usuario');
     }
@@ -143,6 +153,9 @@ class UsuarioController extends Controller
             case '6':
                 $item = Medico::find($usuario->ciusuario);
                 break;
+            case '7':
+                $item = Farmaceutico::find($usuario->ciusuario);
+                break;
         }
 
         $item->delete();
@@ -159,5 +172,11 @@ class UsuarioController extends Controller
             return true;
         }
         return false;
+    }
+
+    public function exportarPdf(){
+        $usuarios = User::get();
+        $pdf = PDF::loadView('pdf.usuarios', compact('usuarios'));
+        return $pdf->download('user-list.pdf');
     }
 }

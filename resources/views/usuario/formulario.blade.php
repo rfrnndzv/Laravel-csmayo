@@ -99,6 +99,11 @@
                 selected
             @endif
         value="6">Odontología</option>
+        <option
+            @if(isset($usuario->nivel) && $usuario->nivel == 7)
+                selected
+            @endif
+        value="7">Farmaceutico</option>
     </select>
     <div id="mc2" class="invalid-feedback">
         Selecciona un estado válido.

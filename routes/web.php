@@ -27,6 +27,7 @@ Route::get('/', function () {
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+Route::get('listapdf', [UsuarioController::class, 'exportarPdf'])->name('usuarios.pdf');
 Route::get('usuario/busca', [UsuarioController::class, 'busca']);
 Route::middleware('soporte')->resource('usuario', UsuarioController::class);
 

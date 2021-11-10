@@ -13,6 +13,7 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="btnGroupDrop1">
                 <li><a class="dropdown-item" href="{{ route('usuario.create') }}">Registrar Nuevo</a></li>
+                <li><a class="dropdown-item" href="{{ route('usuarios.pdf') }}">Generar PDF</a></li>
             </ul>
         </div>
     </div>

@@ -92,7 +92,7 @@ class CmedicaController extends Controller
     {
         if($anexo->estado == "espera" && Auth::user()->nivel == 4){
             $anexo->estado = "en cola";
-        }else if($anexo->estado == "en cola" && Auth::user()->nivel > 4){
+        }else if(Auth::user()->nivel > 4){
             $anexo->estado = "atendido";
         }
         $anexo->save();

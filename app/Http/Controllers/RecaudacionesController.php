@@ -93,8 +93,8 @@ class RecaudacionesController extends Controller
             $cadena = Hclinica::select('codfam')->where('codfam', 'like', $codfam.'%')->orderby('nrohc', 'desc')->get()->first();
 
             if ($cadena != null) {
-                $correlativo = intval(substr($cadena, 2, strlen($cadena) - 1));
-                $codfam = $codfam . "-" . $correlativo + 1;
+                $correlativo = intval(substr($cadena->codfam, 2, strlen($cadena->codfam) - 1));
+                $codfam = $codfam . "-" . ($correlativo + 1);
             } else {
                 $codfam = $codfam . "-1";
             }
