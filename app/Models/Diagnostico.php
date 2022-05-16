@@ -9,16 +9,16 @@ class Diagnostico extends Model
 {
     use HasFactory;
 
-    protected $primarykey = "codigo";
+    protected $primarykey = "codd";
     public $incrementing = false;
     public $timestamps = false;
 
     public function getKeyName(){
-        return "codigo";
+        return "codd";
     }
 
     protected $fillable = [
-        'codigo',
-        'descripcion',
+        'codd',
+        'nombre'
     ];
 }

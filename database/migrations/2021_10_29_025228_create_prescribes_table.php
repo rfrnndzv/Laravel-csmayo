@@ -14,10 +14,12 @@ class CreatePrescribesTable extends Migration
     public function up()
     {
         Schema::create('prescribes', function (Blueprint $table) {
-            $table->bigInteger('nroreceta', 20)->unsigned()->autoIncrement(false);
-            $table->string('codigo');
+            $table->string('nr')->nullable(true);
+            $table->bigInteger('nroreceta', 20)->autoIncrement(false);
+            $table->string('codd')->autoIncrement(false);
 
-            $table->foreign('codigo')->references('codigo')->on('diagnosticos')->onUpdate('cascade');
+            $table->foreign('nroreceta')->references('nroreceta')->on('recetas')->onUpdate('cascade');
+            $table->foreign('codd')->references('codd')->on('diagnosticos')->onUpdate('cascade');
         });
     }
 

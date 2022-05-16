@@ -28,13 +28,13 @@ class Soporte
                 return redirect('recaudaciones');// si es un administrativo a recaudaciones
 			break;	
             case ('4'):
-                return redirect('enfermeria');//si es enfermera a enfermeria
+                return redirect('cmedica');//si es enfermera a enfermeria
             break;
             case ('5'):
-                return redirect('medgeneral');//si es medico general
+                return redirect('cmedica');//si es medico general
             break;
             case ('6'):
-                return redirect('odontologia');//si es medico odontologo
+                return redirect('cmedica');//si es medico odontologo
             break;
         }
     }

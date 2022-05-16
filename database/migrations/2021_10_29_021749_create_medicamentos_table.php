@@ -16,16 +16,12 @@ class CreateMedicamentosTable extends Migration
         Schema::create('medicamentos', function (Blueprint $table) {
             $table->id();
 
-            $table->string('nombre');
-            $table->string('forma');
-            $table->string('concentracion');
-            $table->string('cantidad');
-            $table->string('frecuencia');
-            $table->string('tiempouso');
-            $table->string('vidaadmin');
+            $table->string('medicamento');
+            $table->string('indicacion');
             $table->string('crecetada');
-            $table->string('cdispensada');
-            $table->bigInteger('nroreceta');
+            $table->integer('cdispensada')->nullable(true);
+            $table->double('valor', 8, 2)->nullable(true);
+            $table->BigInteger('nroreceta');
 
             $table->foreign('nroreceta')->references('nroreceta')->on('recetas')->onUpdate('cascade');
         });

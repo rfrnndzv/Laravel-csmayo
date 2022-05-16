@@ -10,14 +10,15 @@ class Receta extends Model
     use HasFactory;
 
     protected $primarykey = 'nroreceta';
-    public $incrementing = false;
     public $timestamps = false;
 
     protected $fillable = [
         'nroreceta',
-        'tipoatencion',
-        'fecha',
-        'cifarm',
+        'medicamento',
+        'indicacion',
+        'crecetada',
+        'cdispensada',
+        'valor'
     ];
 
     public function getKeyName(){

@@ -14,12 +14,10 @@ class CreateRecetasTable extends Migration
     public function up()
     {
         Schema::create('recetas', function (Blueprint $table) {
-            $table->bigInteger('nroreceta')->primary()->autoIncrement(false);
-            
+            $table->bigInteger('nroreceta')->primary();
             $table->string('tipoatencion');
-            $table->datetime('fecha');
-            $table->string('cifarm', 15);
-
+            $table->string('cifarm', 15)->nullable(true);
+            
             $table->foreign('cifarm')->references('cifarm')->on('farmaceuticos')->onUpdate('cascade');
         });
     }

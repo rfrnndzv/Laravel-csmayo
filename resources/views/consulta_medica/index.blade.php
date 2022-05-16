@@ -9,7 +9,7 @@
 
     <!-- Contenido -->
     <div class="contenido p-3">
-        <table id="example" class="display" style="width:100%">
+        <table id="Tabla" class="display" style="width:100%">
             <thead>
                 <tr>
                     <th>Fecha</th>
@@ -30,7 +30,11 @@
                         <td> {{ $reserva->estado }} </td>
                         <td>
                             <a href="{{ route('cmedica.edit', $reserva->nroanexo) }}"
-                                class="btn btn-success">Atender</a>
+                                class="btn btn-success
+                                    @if(Auth::user()->nivel != 5 && Auth::user()->nivel != 4)
+                                        deshabilitar
+                                    @endif">Atender
+                            </a>
                         </td>
                     </tr>
                 @endforeach
@@ -50,11 +54,10 @@
 
     <!-- Mis Librerias JS -->
     <x-slot name="scriptjs">
-        <!-- Código de inicio, introduce datos del Responsable si existe -->
         <script src="{{ asset('js/recaudaciones.js') }}"></script>
         <script>
             $(document).ready(function() {
-                $('#example').DataTable();
+                $('#Tabla').DataTable()
             });
         </script>
     </x-slot>

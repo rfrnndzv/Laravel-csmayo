@@ -14,7 +14,7 @@ class CreateDiagnosticosTable extends Migration
     public function up()
     {
         Schema::create('diagnosticos', function (Blueprint $table) {
-            $table->string('codigo')->primary();
+            $table->string('codd')->primary();
             $table->string('descripcion');
         });
     }

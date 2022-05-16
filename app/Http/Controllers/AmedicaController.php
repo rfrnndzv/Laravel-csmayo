@@ -87,6 +87,7 @@ class AmedicaController extends Controller
     {
         $amedica = new Amedica();
         $amedica->nroam = $nroanexo;
+        $amedica->estado = 'espera';
         $amedica->save();
 
         return redirect(route('cmedica.crea', $amedica->nroam));

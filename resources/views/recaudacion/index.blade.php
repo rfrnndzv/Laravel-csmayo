@@ -12,7 +12,10 @@
             Recaudaciones
           </button>
           <ul class="dropdown-menu" aria-labelledby="BGD_menuPrincipal">
-            <li><a class="dropdown-item" href="{{ route('recaudaciones.create') }}">Registro a Paciente</a></li>
+            <li><a class="dropdown-item
+              @if (Auth::user()->nivel != 3)
+                deshabilitar
+              @endif" href="{{ route('recaudaciones.create') }}">Registro a Paciente</a></li>
             <li>
               <hr class="dropdown-divider">
             </li>

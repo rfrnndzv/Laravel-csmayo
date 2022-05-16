@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Amedica;
 use App\Models\Anexo;
 use App\Models\Hclinica;
 use App\Models\Paciente;
@@ -97,9 +98,7 @@ class AnexoController extends Controller
         $anexo->cimed = $request->cimed;
         date_default_timezone_set("America/Caracas");
         $anexo->fecha = date("Y-m-d H:i:s");
-        $anexo->estado = 'espera';
-
-        $anexo->save();
+        $anexo->save();        
 
         return redirect(route('amedica.crea', $anexo->nroanexo));
     }

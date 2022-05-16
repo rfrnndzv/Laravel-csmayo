@@ -24,6 +24,7 @@ class CreateAmedicasTable extends Migration
             $table->integer('fc')->nullable();
             $table->string('pa', 7)->nullable();
             $table->integer('fr')->nullable();
+            $table->string('estado', 15);
 
             $table->foreign('cienf')->references('cienf')->on('enfermera')->onUpdate('cascade');
         });

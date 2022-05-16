@@ -16,10 +16,9 @@ class CreateAnexosTable extends Migration
         Schema::create('anexo', function (Blueprint $table) {
             $table->id('nroanexo');
             $table->bigInteger('nrohc');
-            $table->string('ciadm', 15);
+            $table->string('ciadm', 15)->nullable();
             $table->string('cimed', 15);
             $table->dateTime('fecha');
-            $table->string('estado', 15);
         });
     }
 

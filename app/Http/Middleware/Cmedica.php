@@ -34,7 +34,7 @@ class Cmedica
                 return $next($request);//si es medico general
             break;
             case ('6'):
-                return redirect('odontologia');//si es medico odontologo
+                return $next($request);//si es medico odontologo
             break;
         }
     }
