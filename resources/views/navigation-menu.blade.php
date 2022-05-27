@@ -23,6 +23,10 @@
                     <x-jet-nav-link href="{{ route('cmedica.index') }}" :active="request()->routeIs('cmedica.*')">
                         {{ __('Consulta Médica') }}
                     </x-jet-nav-link>
+
+                    <x-jet-nav-link href="{{ route('farmacia.index') }}" :active="request()->routeIs('farmacia.*')">
+                        {{ __('Farmacia') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 
@@ -156,6 +160,10 @@
 
             <x-jet-responsive-nav-link href="{{ route('cmedica.index') }}" :active="request()->routeIs('cmedica.*')">
                 {{ __('Consulta Médica') }}
+            </x-jet-responsive-nav-link>
+
+            <x-jet-responsive-nav-link href="{{ route('farmacia.index') }}" :active="request()->routeIs('farmacia.*')">
+                {{ __('Farmacia') }}
             </x-jet-responsive-nav-link>
         </div>
 

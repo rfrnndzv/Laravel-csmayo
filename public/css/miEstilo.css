@@ -106,3 +106,15 @@ body{
     background-position: center;
     background-size: 100%;
 }
+
+#show .form-label {
+    color: black;
+    background-color: rgba(236, 238, 243, 0.897);
+    border-radius: 8px;
+    padding: 2px;
+}
+
+table.table td.editable{
+    background-color: white;
+    
+}

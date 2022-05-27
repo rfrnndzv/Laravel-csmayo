@@ -89,7 +89,8 @@ class AnexoController extends Controller
         //
     }
 
-    public function crea(Request $request){
+    public function reserva(Request $request)
+    {
         $registra = Registra::where('cipaciente', 'like', $request->cipaciente)->get()->first();
         
         $anexo = new Anexo();
@@ -98,7 +99,7 @@ class AnexoController extends Controller
         $anexo->cimed = $request->cimed;
         date_default_timezone_set("America/Caracas");
         $anexo->fecha = date("Y-m-d H:i:s");
-        $anexo->save();        
+        $anexo->save();
 
         return redirect(route('amedica.crea', $anexo->nroanexo));
     }

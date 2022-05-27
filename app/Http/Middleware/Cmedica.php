@@ -25,7 +25,7 @@ class Cmedica
                 return redirect('usuario');//si es Soporte de Mantenimiento a usuarios
             break;
 			case ('3'):
-                return redirect('recaudaciones');// si es un administrativo a recaudaciones
+                return $next($request);// si es un administrativo a recaudaciones
 			break;	
             case ('4'):
                 return $next($request);//si es enfermera a enfermeria
@@ -35,6 +35,9 @@ class Cmedica
             break;
             case ('6'):
                 return $next($request);//si es medico odontologo
+            break;
+            case ('7'):
+                return redirect('farmacia');//si es medico farmaceutico
             break;
         }
     }

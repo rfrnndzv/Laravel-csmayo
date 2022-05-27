@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Amedica;
+use App\Models\Anexo as Anexo;
 use Illuminate\Http\Request;
 
 class AmedicaController extends Controller
@@ -14,7 +15,7 @@ class AmedicaController extends Controller
      */
     public function index()
     {
-        //
+        return "Usted se encuentra en Index de Amedica";
     }
 
     /**
@@ -24,7 +25,7 @@ class AmedicaController extends Controller
      */
     public function create()
     {
-        //
+        return "Usted se encuentra en Create de Amedica";
     }
 
     /**
@@ -35,7 +36,7 @@ class AmedicaController extends Controller
      */
     public function store(Request $request)
     {
-        return "Bienvenido a Amedica Store.";
+        
     }
 
     /**
@@ -46,7 +47,7 @@ class AmedicaController extends Controller
      */
     public function show(Amedica $amedica)
     {
-        //
+        return("Usted se encuentra en Show");
     }
 
     /**
@@ -57,7 +58,7 @@ class AmedicaController extends Controller
      */
     public function edit(Amedica $amedica)
     {
-        //
+        return("Usted se encuentra en Edit");
     }
 
     /**
@@ -69,7 +70,7 @@ class AmedicaController extends Controller
      */
     public function update(Request $request, Amedica $amedica)
     {
-        //
+        return("Usted se encuentra en Update");
     }
 
     /**
@@ -80,13 +81,13 @@ class AmedicaController extends Controller
      */
     public function destroy(Amedica $amedica)
     {
-        //
+        return("Usted se encuentra en Destroy");
     }
 
-    public function crea($nroanexo)
-    {
+    public function crea(Anexo $anexo){
+
         $amedica = new Amedica();
-        $amedica->nroam = $nroanexo;
+        $amedica->nroam = $anexo->nroanexo;
         $amedica->estado = 'espera';
         $amedica->save();
 

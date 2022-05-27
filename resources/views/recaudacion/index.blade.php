@@ -66,7 +66,7 @@
 
                                   @foreach ($medicos as $medico)
                                   <li>
-                                    <form name="reserva" action="{{ route('anexo.crea') }}" method="POST">
+                                    <form name="reserva" action="{{ route('anexo.reserva') }}" method="POST">
                                       @csrf
                                       <input name="cipaciente" type="hidden" value="{{ $paciente->cipaciente }}">
                                       <input name="cimed" type="hidden" value="{{ $medico->cimed }}">

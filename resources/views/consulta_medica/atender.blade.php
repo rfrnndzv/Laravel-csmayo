@@ -15,6 +15,9 @@
             <ul class="dropdown-menu" aria-labelledby="BGD_menuPrincipal">
                 <li>
                     <!-- Button trigger modal -->
+                    <a type="button" class="dropdown-item" href="{{ route('hclinica.show', $anexo->nrohc) }}">
+                        Historial Clínico
+                    </a>
                     <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                         Recetar
                     </button>
@@ -41,24 +44,24 @@
                 <label for="val_hingreso" class="form-label">Hora</label>
                 <div class="input-group has-validation">
                     <span class="input-group-text" id="validationTooltipUsernamePrepend">Ingreso</span>
-                    <input type="time" class="form-control" id="val_hingreso" value="{{ $amedica->hingreso }}"
-                        name="hingreso" readonly>
+                    <label type="time" class="form-control" id="val_hingreso" 
+                        name="hingreso" readonly>{{ $amedica->hingreso }}</label>
                 </div>
             </div>
 
             <div class="col-md-3 position-relative align-self-end">
                 <div class="input-group has-validation">
                     <span class="input-group-text" id="val_hegreso">Egreso</span>
-                    <input type="text" class="form-control" id="val_hegreso" value="{{ $amedica->hegreso }}"
-                        name="hegreso" readonly>
+                    <label type="text" class="form-control" id="val_hegreso"
+                        name="hegreso" readonly>{{ $amedica->hegreso }}</label>
                 </div>
             </div>
 
             <div class="col-md-6"></div>
 
             <?php
-            $dia_actual = date('Y-m-d');
-            $edad_diff = date_diff(date_create($paciente->fnac), date_create($dia_actual));
+                $fecha_actual = date('Y-m-d');
+                $edad_diff = date_diff(date_create($paciente->fnac), date_create($fecha_actual));
             ?>
 
             <div class="col-md-3 position-relative">
@@ -66,14 +69,14 @@
                 <div class="input-group has-validation">
                     <div class="input-group has-validation">
                         <span class="input-group-text" id="validationTooltipUsernamePrepend">Año(s)</span>
-                        <input type="number" class="form-control" id="anios" value="{{ $edad_diff->format('%y') }}"
-                            name="anios" readonly>
+                        <label type="number" class="form-control" id="anios"
+                            name="anios" readonly>{{ $edad_diff->format('%y') }}</label>
                         <span class="input-group-text" id="validationTooltipUsernamePrepend">Mes(es)</span>
-                        <input type="number" class="form-control" id="meses" value="{{ $edad_diff->format('%m') }}"
-                            name="meses" readonly>
+                        <label type="number" class="form-control" id="meses" 
+                            name="meses" readonly>{{ $edad_diff->format('%m') }}</label>
                         <span class="input-group-text" id="validationTooltipUsernamePrepend">Día(s)</span>
-                        <input type="number" class="form-control" id="dias" value="{{ $edad_diff->format('%d') }}"
-                            name="dias" readonly>
+                        <label type="number" class="form-control" id="dias"
+                            name="dias" readonly>{{ $edad_diff->format('%d') }}</label>
                     </div>
                 </div>
             </div>
@@ -174,8 +177,7 @@
                             <div class="col-md-6">
                                 <label for="val_tipoatencion" class="form-label">Tipo de Atención</label>
                                 <select class="form-select" id="val_atencion" required>
-                                    <option selected disabled value="">Seleccionar...</option>
-                                    <option value="consultorio">En consultorio</option>
+                                    <option selected value="consultorio">En consultorio</option>
                                     <option value="domiciliaria">Domiciliaria</option>
                                     <option value="internación">Internación de Transito</option>
                                     <option value="referencia">Referencia</option>
@@ -194,9 +196,9 @@
 
                             <label class="division" for="">Diagnostico</label>
 
-                            <div class="col-md-4">
+                            <div class="col-md-8">
                                 <label for="val_codigo" class="form-label">Código</label>
-                                <select class="form-select" id="val_codigo" required>
+                                <select class="form-select" id="val_codigo">
                                     <option selected disabled value="">Seleccionar...</option>
                                     <option value="A03">A03 Disentería</option>
                                     <option value="A09">A09 Diarrea y Diarrea Persistente</option>
@@ -236,11 +238,6 @@
                                 </select>
                             </div>
 
-                            <div class="col-md-4">
-                                <label for="val_diagnostico" class="form-label">Diagnostico</label>
-                                <input type="text" class="form-control" id="val_diagnostico">
-                            </div>
-
                             <div class="col-md-2">
                                 <label for="val_nr" class="form-label">N/R</label>
                                 <input type="text" class="form-control" id="val_nr">
@@ -254,7 +251,6 @@
                                 <thead>
                                   <tr>
                                     <th scope="col">Código</th>
-                                    <th scope="col">Diagnostico</th>
                                     <th scope="col">N/R</th>
                                   </tr>
                                 </thead>
@@ -264,7 +260,7 @@
                             </table>
 
                             <div class="row justify-content-end">
-                                <div class="col-1">
+                                <div class="col-2 text-right">
                                     <a class="btn btn-danger" id="btn-quitar1">Quitar</a>
                                 </div>
                             </div>
@@ -304,7 +300,7 @@
                             </table>
 
                             <div class="row justify-content-end">
-                                <div class="col-1">
+                                <div class="col-2 text-right">
                                     <a class="btn btn-danger" id="btn-quitar2">Quitar</a>
                                 </div>
                             </div>
@@ -326,7 +322,7 @@
     <!-- Mis Librerias JS -->
     <x-slot name="scriptjs">
         <!-- Código de inicio, introduce datos del Responsable si existe -->
-        <script src="{{ asset('js/recaudaciones.js') }}"></script>
+        <script src="{{ asset('js/amedica.js') }}"></script>
         <script src="{{ asset('js/tablaDatos.js') }}"></script>
     </x-slot>
 

@@ -24,7 +24,7 @@ class Paciente extends Migration
             $table->string('autopercult', 30)->nullable();
             $table->string('ocupacion', 25)->nullable();
             $table->string('ocomunitaria', 25)->nullable();
-            $table->string('decididor', 14);
+            $table->string('decididor', 50);
             $table->string('ecivil', 18);
             $table->string('escolaridad', 15)->nullable();
             $table->string('nacionalidad', 30)->nullable();

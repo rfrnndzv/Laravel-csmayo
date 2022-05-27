@@ -14,7 +14,7 @@ class CreateAmedicasTable extends Migration
     public function up()
     {
         Schema::create('amedica', function (Blueprint $table) {
-            $table->id('nroam');
+            $table->id('nroam')->autoIncrement(false);
             $table->string('cienf', 15)->nullable();
             $table->string('hingreso', 5)->nullable();
             $table->string('hegreso', 5)->nullable();

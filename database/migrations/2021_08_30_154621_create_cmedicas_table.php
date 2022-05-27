@@ -14,7 +14,7 @@ class CreateCmedicasTable extends Migration
     public function up()
     {
         Schema::create('cmedica', function (Blueprint $table) {
-            $table->id('nrocm');
+            $table->id('nrocm')->autoIncrement(false);
             $table->string('objetivo')->nullable();
             $table->string('subjetivo')->nullable();
             $table->string('paccion')->nullable();

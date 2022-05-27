@@ -36,6 +36,9 @@ class Soporte
             case ('6'):
                 return redirect('cmedica');//si es medico odontologo
             break;
+            case ('7'):
+                return redirect('farmacia');//si es medico farmaceutico
+            break;
         }
     }
 }

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Amedica;
 use App\Models\Anexo;
 use App\Models\Cmedica;
-use App\Models\Diagnostico;
 use App\Models\Medicamento;
 use App\Models\Persona;
 use App\Models\Prescribe;
@@ -112,7 +111,7 @@ class CmedicaController extends Controller
             $amedica->cienf = Auth::user()->ciusuario;
             $amedica->estado = "en cola";
             $amedica->save();
-        } elseif (Auth::user()->nivel = 4 or Auth::user()->nivel = 6) {
+        } elseif (Auth::user()->nivel = 5 or Auth::user()->nivel = 6) {
             $amedica = Amedica::find($anexo->nroanexo);
             $amedica->estado = "atendido";
             if (!isset($amedica->hegreso)) {
@@ -140,10 +139,10 @@ class CmedicaController extends Controller
         //
     }
 
-    public function crea($nroam)
+    public function crea(Amedica $amedica)
     {
         $cmedica = new Cmedica();
-        $cmedica->nrocm = $nroam;
+        $cmedica->nrocm = $amedica->nroam;
         $cmedica->save();
 
         return redirect(route('recaudaciones.index'));
@@ -163,23 +162,26 @@ class CmedicaController extends Controller
         $receta->tipoatencion = $request->recetar[1];
         $receta->save();
 
-        for ($i=0; $i < count($request->codigos); $i++) { 
-            $prescribe              = new Prescribe();
-            $prescribe->nr          = $request->nrs[$i];
-            $prescribe->nroreceta   = $anexo->nroanexo;
-            $prescribe->codd        = $request->codigos[$i];
-            $prescribe->save();
+        if (isset($request->codigos)) {
+            for ($i=0; $i < count($request->codigos); $i++) { 
+                $prescribe              = new Prescribe();
+                $prescribe->nr          = $request->nrs[$i];
+                $prescribe->nroreceta   = $anexo->nroanexo;
+                $prescribe->codd        = $request->codigos[$i];
+                $prescribe->save();
+            }
         }
-
-        for ($i=0; $i < count($request->nombres); $i++) {
-            $medicamento                = new Medicamento();
-            $medicamento->medicamento   = $request->nombres[$i];
-            $medicamento->indicacion    = $request->indicaciones[$i];
-            $medicamento->crecetada     = $request->cantidades[$i];
-            $medicamento->nroreceta     = $anexo->nroanexo;
-            $medicamento->save();
+        
+        if (isset($request->nombres)) {
+            for ($i=0; $i < count($request->nombres); $i++) {
+                $medicamento                = new Medicamento();
+                $medicamento->medicamento   = $request->nombres[$i];
+                $medicamento->indicacion    = $request->indicaciones[$i];
+                $medicamento->crecetada     = $request->cantidades[$i];
+                $medicamento->nroreceta     = $anexo->nroanexo;
+                $medicamento->save();
+            }
         }
-
-        return("Receta Guardada. ");
+        return("Receta Guardada.");
     }
 }

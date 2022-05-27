@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class Recaudaciones
+class Farmacia
 {
     /**
      * Handle an incoming request.
@@ -19,13 +19,13 @@ class Recaudaciones
     {
         switch(Auth::user()->nivel){
             case ('1'):
-                return $next($request);// si es un administrativo a recaudaciones
+                return $next($request);//si es desarrollo
             break;
             case ('2'):
-                return redirect('usuario');//si es Soporte de Mantenimiento a usuarios
+                return $next($request);//si es Soporte de Mantenimiento a usuarios
             break;
 			case ('3'):
-                return $next($request);// si es un administrativo a recaudaciones
+                return redirect('recaudaciones');// si es un administrativo a recaudaciones
 			break;	
             case ('4'):
                 return redirect('cmedica');//si es enfermera a enfermeria
@@ -37,7 +37,7 @@ class Recaudaciones
                 return redirect('cmedica');//si es medico odontologo
             break;
             case ('7'):
-                return redirect('farmacia');//si es medico farmaceutico
+                return $next($request);//si es farmaceutico
             break;
         }
     }
