@@ -1,8 +1,4 @@
-
-
-var editor; // use a global for the submit and return data rendering in the examples
 //Funciones para editar las recetas de FARMACIA
-
 $(document).ready(function() {
 
     //Boton para guardar los datos de la RECETA

@@ -88,6 +88,10 @@ $(document).ready(function() {
             $('#val_atencion').val()
         ]
 
+        if (nombres.length == 0) {
+            alert('No se ha recetado medicamentos')
+            return false
+        }
         $.ajax({
             url: "/cmedica/receta",
             type: "GET",
@@ -103,12 +107,5 @@ $(document).ready(function() {
                 alert(respuesta)
             }
         })
-
-        /*tableDiag.fnClearTable()
-        tableDiag.fnDestroy()
-        tableMed.fnClearTable()
-        tableMed.fnDestroy()
-        
-        return false*/
     })
 });

@@ -17,9 +17,11 @@ class FarmaciaController extends Controller
 {
     public function index()
     {
+        $fecha_actual = date_format(now(), 'Y-m-d');
+        $fecha_limite = date("Y-m-d", strtotime($fecha_actual."- 6 days"));
         $consulta = "SELECT A.nroanexo, A.fecha, B.tipoatencion, C.seguro, D.nombres, D.apaterno, D.amaterno
                     FROM anexo A, recetas B, hclinica C, persona D, registra E
-                    WHERE B.cifarm IS NULL AND DATE_FORMAT(A.fecha,'%y-%m-%d') = DATE_FORMAT(now(),'%y-%m-%d')
+                    WHERE B.cifarm IS NULL AND (A.fecha BETWEEN '$fecha_limite' AND '$fecha_actual')
                     AND A.nroanexo = B.nroreceta AND A.nroanexo = B.nroreceta AND A.nrohc = C.nrohc
                     AND E.nrohc = C.nrohc AND D.ci = E.cipaciente";
         
@@ -98,12 +100,11 @@ class FarmaciaController extends Controller
             for ($i=0; $i < count($request->ids); $i++) { 
                 $medicamento = Medicamento::find($request->ids[$i]);
                 $medicamento->cdispensada = $request->cantidades[$i];
-                $medicamento->valor = $request->cantidades[$i];
+                $medicamento->valor = $request->valores[$i];
                 $medicamento->update();
             }
         }
         return route('farmacia.pdf', $request->nroreceta);
-        //return ("/farmacia/pdf?nroreceta=" . $request->nroreceta);
     }
 
     public function pdf(Anexo $anexo){
@@ -121,7 +122,8 @@ class FarmaciaController extends Controller
         $paciente = Paciente::find($registra->cipaciente);
         $persona = Persona::find($registra->cipaciente);
 
-        $pdf = PDF::loadView('farmacia.recetapdf', compact('receta', 'prescribes', 'medicamentos', 'hclinica', 'registra', 'paciente', 'persona'));
+        $pdf = new PDF(['isRemoteEnabled'=>true]);
+        $pdf = PDF::loadView('farmacia.recetapdf', compact('receta', 'prescribes', 'medicamentos', 'hclinica', 'registra', 'paciente', 'persona'))->setPaper(array(0, 0, 469.47, 611,73), 'portrait');;
         return $pdf->download('receta.pdf');
     }
 }

@@ -25,8 +25,8 @@
                     <th>C.I.</th>
                     <th>Usuario</th>
                     <th>Nivel</th>
-                    <th></th>
-                    <th></th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
                 </tr>
             </thead>
             <tbody>
@@ -55,14 +55,14 @@
                                 Odontología
                             @endif
                         </td>
-                        <td> <a href="{{ route('usuario.edit', $usuario) }}" class="btn btn-warning"><span
+                        <td> <a href="{{ route('usuario.edit', $usuario) }}" class="btn"><span
                                     class="editar"></span></a></td>
                         <td>
                             <form action="{{ route('usuario.destroy', $usuario) }}" method="POST"
                                 onclick="return confirm('¿Se eliminará registro?')">
                                 @csrf
                                 @method('delete')
-                                <button type="submit" class="btn btn-danger"><span class="eliminar"></span></button>
+                                <button type="submit" class="btn"><span class="eliminar"></span></button>
                             </form>
                         </td>
                     </tr>

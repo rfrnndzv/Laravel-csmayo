@@ -172,16 +172,15 @@ class CmedicaController extends Controller
             }
         }
         
-        if (isset($request->nombres)) {
-            for ($i=0; $i < count($request->nombres); $i++) {
-                $medicamento                = new Medicamento();
-                $medicamento->medicamento   = $request->nombres[$i];
-                $medicamento->indicacion    = $request->indicaciones[$i];
-                $medicamento->crecetada     = $request->cantidades[$i];
-                $medicamento->nroreceta     = $anexo->nroanexo;
-                $medicamento->save();
-            }
+        for ($i=0; $i < count($request->nombres); $i++) {
+            $medicamento                = new Medicamento();
+            $medicamento->medicamento   = $request->nombres[$i];
+            $medicamento->indicacion    = $request->indicaciones[$i];
+            $medicamento->crecetada     = $request->cantidades[$i];
+            $medicamento->nroreceta     = $anexo->nroanexo;
+            $medicamento->save();
         }
+        
         return("Receta Guardada.");
     }
 }

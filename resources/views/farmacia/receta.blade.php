@@ -12,7 +12,7 @@
         </button>
         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="btnGroupDrop1">
             <li><a id="opt-imprimir" class="dropdown-item text-danger">Imprimir</a></li>
-            <li><a class="dropdown-item text-danger" href="{{ route('farmacia.index') }}">Cancelar</a></li>
+            <li><a class="dropdown-item text-danger" href="{{ route('farmacia.index') }}">Volver</a></li>
         </ul>
       </div>
       

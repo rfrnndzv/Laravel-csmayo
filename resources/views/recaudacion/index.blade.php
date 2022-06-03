@@ -37,8 +37,8 @@
               <th>Fecha Nac.</th>
               <th>Sexo</th>
               <th>Ficha para:</th>
-              <th></th>
-              <th></th>
+              <th>Editar</th>
+              <th>Eliminar</th>
             </tr>
           </thead>
           <tbody>
@@ -112,8 +112,8 @@
               <th>Fecha Nac.</th>
               <th>Sexo</th>
               <th>Ficha para:</th>
-              <th></th>
-              <th></th>
+              <th>Editar</th>
+              <th>Eliminar</th>
             </tr>
           </tfoot>
         </table>
